@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
+            scroll-behavior: smooth;
         }
 
         a {
@@ -19,64 +20,99 @@
             color: inherit;
         }
 
+        /* Navigation Bar */
         header {
-            background-color: #0d6efd;
-            padding: 20px 0;
-            text-align: center;
-            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         header h1 {
+            font-size: 24px;
+            color: #0d6efd;
             margin: 0;
-            font-size: 36px;
+            font-weight: 600;
         }
 
         nav {
             display: flex;
-            justify-content: center;
             gap: 30px;
-            margin-top: 10px;
         }
 
         nav a {
-            color: white;
-            font-size: 18px;
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
             padding: 10px 15px;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         nav a:hover {
-            background-color: #0056b3;
-        }
-
-        /* Main Section */
-        .container {
-            width: 85%;
-            margin: 40px auto;
-        }
-
-        .section-title {
-            font-size: 28px;
-            margin-bottom: 20px;
-            text-align: center;
+            background-color: #f1f1f1;
             color: #0d6efd;
         }
 
+        /* Section Styles */
+        .section {
+            padding: 60px 0; 
+            text-align: left;
+            width: 100vw;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         .about {
-            text-align: center;
-            margin-bottom: 40px;
+            background-color: #f1f1f1;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .projects {
+            background-color: #ffffff;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .contact {
+            background-color: #f1f1f1;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #0d6efd;
         }
 
         .about p {
             font-size: 18px;
             line-height: 1.6;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0;
             color: #555;
         }
 
-        .projects {
+        .projects-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
@@ -104,16 +140,10 @@
             line-height: 1.6;
         }
 
-        .contact {
-            background-color: #f1f1f1;
-            padding: 40px;
-            text-align: center;
-            border-radius: 10px;
-        }
-
-        .contact h3 {
-            color: #0d6efd;
-            margin-bottom: 20px;
+        .contact p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
         }
 
         .contact a {
@@ -135,55 +165,76 @@
             padding: 20px 0;
             background-color: #0d6efd;
             color: white;
-            margin-top: 40px;
         }
+
     </style>
 </head>
 <body>
 
+    <!-- Updated Navigation Bar -->
     <header>
-        <h1>Elliot Harris</h1>
-        <nav>
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <div class="nav-container">
+            <h1>Elliot Harris</h1>
+            <nav>
+                <a href="#about">About Me</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
 
     <div class="container">
         <!-- About Me Section -->
-        <section id="about" class="about">
+        <section id="about" class="section about">
             <h2 class="section-title">About Me</h2>
             <p>I'm Elliot Harris, a passionate software engineer with experience in developing web and application solutions. I specialize in full-stack development, creating scalable, efficient, and user-friendly software. I am constantly learning new technologies and working on exciting projects that push the boundaries of innovation.</p>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="projects">
+        <section id="projects" class="section projects">
             <h2 class="section-title">Projects</h2>
             
-            <!-- Project 1 -->
-            <div class="project-card">
-                <h3>Project Title 1</h3>
-                <p>A brief description of this project, outlining the technologies used and the problem it solves. This project demonstrates my ability to work with [insert technologies] to create [specific functionality].</p>
-            </div>
-            
-            <!-- Project 2 -->
-            <div class="project-card">
-                <h3>Project Title 2</h3>
-                <p>This project showcases my skills in [specific technology or stack]. I developed [key feature] to improve [user experience/performance/etc.], and it helped solve [specific problem] in a creative way.</p>
-            </div>
+            <div class="projects-container">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3>Project Title 1</h3>
+                    <p>A brief description of this project, outlining the technologies used and the problem it solves. This project demonstrates my ability to work with [insert technologies] to create [specific functionality].</p>
+                </div>
 
-            <!-- Project 3 -->
-            <div class="project-card">
-                <h3>Project Title 3</h3>
-                <p>This was an exciting project where I implemented [specific framework or tool]. The main challenge was [problem], but I resolved it by using [technique/approach], leading to a successful outcome.</p>
-            </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3>Project Title 2</h3>
+                    <p>This project showcases my skills in [specific technology or stack]. I developed [key feature] to improve [user experience/performance/etc.], and it helped solve [specific problem] in a creative way.</p>
+                </div>
 
-            <!-- Additional project placeholders as needed -->
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3>Project Title 3</h3>
+                    <p>This was an exciting project where I implemented [specific framework or tool]. The main challenge was [problem], but I resolved it by using [technique/approach], leading to a successful outcome.</p>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <h3>Project Title 4</h3>
+                    <p>A brief description of this project. It involved using [insert technology] and focuses on [specific functionality].</p>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <h3>Project Title 5</h3>
+                    <p>This project is an example of my work in [area of expertise]. It demonstrates my capability to solve complex problems in [technology/stack].</p>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <h3>Project Title 6</h3>
+                    <p>This project illustrates my skills in [specific field] and how I applied [technology] to create an innovative solution to [problem or challenge].</p>
+                </div>
+            </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact">
+        <section id="contact" class="section contact">
             <h2 class="section-title">Contact Me</h2>
             <p>If you're interested in collaborating or have any questions, feel free to reach out to me via email.</p>
             <a href="mailto:elliotjamesharris@gmail.com">Get in Touch</a>
